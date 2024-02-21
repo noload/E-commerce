@@ -3,10 +3,12 @@ const authMiddleware = require("../middleware/authMiddleware");
 const {
   addProductController,
   getProductsController,
+  getByIdController,
 } = require("../controllers/productController");
 const router = Router();
 
 router.post("/new", authMiddleware, addProductController);
 router.get("/products", authMiddleware, getProductsController);
+router.get("/product/:id", authMiddleware, getByIdController);
 
 module.exports = router;
