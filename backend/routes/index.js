@@ -4,6 +4,6 @@ const authRoute = require("./Auth");
 const productRoute = require("./Product");
 
 router.use("/auth", authRoute);
-router.use("/product", productRoute);
+router.use("/products", productRoute);
 
 module.exports = router;
