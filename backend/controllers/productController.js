@@ -60,8 +60,29 @@ const getByIdController = async (req, res) => {
     });
   }
 };
+
+const getByCategoryController = async (req, res) => {
+  const category = req.params.category;
+  console.log(category);
+  try {
+    const product = await Product.find({ category: category });
+    res.status(200).json({
+      success: true,
+      message: "Product detail fetched succesfully",
+      product,
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({
+      success: false,
+      message: "Something wen wrong to get product based on id",
+    });
+  }
+};
+
 module.exports = {
   addProductController,
   getProductsController,
   getByIdController,
+  getByCategoryController,
 };
